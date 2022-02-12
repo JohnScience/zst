@@ -1,6 +1,7 @@
 #![cfg_attr(feature = "structural_match", feature(structural_match))]
 #![feature(const_trait_impl)]
 #![feature(const_default_impls)]
+#![feature(const_fn_trait_bound)]
 
 use core::{
     default::Default,
@@ -15,14 +16,18 @@ use const_trait_impl::unconst_trait_impl;
 #[derive(Clone, Debug, Hash, Eq, Ord, PartialEq, PartialOrd, Copy)]
 pub struct ZST<T: ?Sized>(PhantomData<T>);
 
+pub trait TraitName {}
+
+impl<T: ?Sized> const TraitName for ZST<T> {}
+
 #[unconst_trait_impl]
-impl<T: ?Sized> const Default for ZST<T> {
+impl<T: ~const TraitName + ?Sized> const Default for ZST<T> {
     fn default() -> Self {
         ZST(Default::default())
     }
 }
 
-impl<T: ?Sized> ZST<T> {
+impl<T: TraitName + ?Sized> ZST<T> {
     #[inline(always)]
     pub fn new() -> ZST<T> {
         Default::default()
