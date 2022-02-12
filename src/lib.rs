@@ -7,7 +7,7 @@ use core::{
     marker::PhantomData
 };
 pub use the_assoc_ty_ext::TheAssocTyExt;
-use const_trait_impl::const_trait_impl;
+use const_trait_impl::unconst_trait_impl;
 
 /// Generic type 
 // Since ZST is both Eq and and PartialEq, it has structural match
@@ -15,8 +15,8 @@ use const_trait_impl::const_trait_impl;
 #[derive(Clone, Debug, Hash, Eq, Ord, PartialEq, PartialOrd, Copy)]
 pub struct ZST<T: ?Sized>(PhantomData<T>);
 
-//#[const_trait_impl]
-impl<T: ?Sized> Default for ZST<T> {
+#[unconst_trait_impl]
+impl<T: ?Sized> const Default for ZST<T> {
     fn default() -> Self {
         ZST(Default::default())
     }
