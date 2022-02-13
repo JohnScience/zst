@@ -15,6 +15,7 @@ const_fn = { version = "0.4.9", optional = true }
 [build-dependencies]
 cfg_aliases = "0.1.1"
 
+# build.rs also generates other features for cfg macros
 [features]
 const_trait_impl = []
 const_default_impls = ["const_fn"]
