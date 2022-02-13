@@ -17,7 +17,7 @@ use the_assoc_ty_ext::TheAssocTyExt;
 // Since ZST is both Eq and and PartialEq, it has structural match
 // https://github.com/rust-lang/rust/issues/63438
 #[derive(Clone, Debug, Hash, Eq, Ord, PartialEq, PartialOrd, Copy)]
-pub struct ZST<T: ?Sized>(PhantomData<T>);
+pub struct ZST<T: ?Sized>(PhantomData<*const T>);
 
 #[cfg_attr(const_impl, remove_macro_call)]
 unconst_trait_impl! {
