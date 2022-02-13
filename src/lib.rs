@@ -1,3 +1,4 @@
+#![no_std]
 #![cfg_attr(
     const_impl,
     feature(const_trait_impl),
