@@ -1,8 +1,25 @@
 [package]
 name = "zst"
 version = "0.1.0"
+authors = ["Dmitrii Demenev <demenev.dmitriy1@gmail.com>"]
 edition = "2021"
+# rust-version = "1.56.1" # https://github.com/foresterre/cargo-msrv
+description = "Zero-sized generic type with the associated type exposing the type parameter"
+documentation = "https://docs.rs/zst"
+readme = "README.md"
+repository = "https://github.com/JohnScience/zst"
+license = "MIT OR Apache-2.0"
+# license-file | not needed
+keywords = ["zst", "zero-sized", "zero", "sized", "typestate"]
+categories = ["no-std", "memory-management", "rust-patterns"] # https://crates.io/category_slugs
+# workspace | not needed
 build = "build.rs"
+# links | not needed
+# exclude | not needed
+autobins = false
+autoexamples = false
+autotests = false
+autobenches = false
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
