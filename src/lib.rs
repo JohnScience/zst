@@ -10,7 +10,7 @@
 #[cfg(feature = "const_default_impls")]
 use const_fn::const_fn;
 #[cfg(not(const_impl))]
-use const_trait_impl::unconst_trait_impl;
+use unconst_trait_impl::unconst_trait_impl;
 use core::{default::Default, marker::PhantomData};
 #[cfg(const_impl)]
 use remove_macro_call::remove_macro_call;
